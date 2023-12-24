@@ -1,0 +1,20 @@
+.EmployeesFrame {
+    display: grid;
+    row-gap: 3rem;
+    column-gap: .75rem;
+    grid-template-columns: repeat(1, 1fr);
+    width: var(--sizeContainerWidthRg);
+    margin-inline: auto;
+
+    @include mediaScreenMin(sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mediaScreenMin(md) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mediaScreenMin(lg) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

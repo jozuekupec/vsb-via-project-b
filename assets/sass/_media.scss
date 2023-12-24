@@ -1,0 +1,15 @@
+$mediaBreakpoints: (
+        xs: 23.5rem,    // 376px
+        sm: 36rem,      // 576px
+        md: 48rem,      // 768px
+        lg: 62rem,      // 992px
+        xl: 75rem,      // 1200px
+        xxl: 87.5rem,   // 1400px
+        xxxl: 97rem,    // 1552px
+);
+
+@mixin mediaScreenMin($breakpoint) {
+    @media screen and (min-width: map-get($mediaBreakpoints, $breakpoint)){
+        @content
+    }
+}
