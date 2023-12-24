@@ -1,10 +1,43 @@
+body {
+    margin: 0;
+    background-color: var(--colorBrandSecondary);
+    font-size: 16px;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        background-color: var(--colorBrandPrimary);
+
+        .HeaderFrame {
+            display: flex;
+            flex-direction: column;
+            height: 29rem;
+            width: var(--sizeContainerWidthRg);
+            margin-inline: auto;
+        }
+
+        .HeaderEmployees {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 42%;
+        }
+    }
+
+    main {
+        width: var(--sizeContainerWidthRg);
+        margin-inline: auto;
+        padding-block: 2.5rem;
+    }
+}
+
 .EmployeesFrame {
     display: grid;
     row-gap: 3rem;
-    column-gap: .75rem;
+    column-gap: 1.5rem;
     grid-template-columns: repeat(1, 1fr);
-    width: var(--sizeContainerWidthRg);
-    margin-inline: auto;
 
     @include mediaScreenMin(sm) {
         grid-template-columns: repeat(3, 1fr);
@@ -17,4 +50,14 @@
     @include mediaScreenMin(lg) {
         grid-template-columns: repeat(6, 1fr);
     }
+}
+
+.SeeAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 4.75rem;
 }

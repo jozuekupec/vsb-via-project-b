@@ -53,4 +53,19 @@
             z-index: 0;
         }
     }
+
+    &-details {
+        font-size: 1.375rem;
+    }
+
+    &-name {
+        a {
+            text-decoration: unset;
+            color: var(--colorText);
+        }
+    }
+
+    &-position {
+        font-style: italic;
+    }
 }

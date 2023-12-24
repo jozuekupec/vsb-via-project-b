@@ -1,0 +1,24 @@
+@mixin importFont($family, $url, $weight, $isItalic: false) {
+    @font-face {
+        font-family: $family, sans-serif;
+        src: url($url) format("trueType");
+        font-weight: $weight;
+
+        @if $isItalic {
+            font-style: italic;
+        }
+    }
+}
+
+@include importFont("Yrsa", "assets/font/Yrsa-Light.ttf", 300);
+@include importFont("Yrsa", "assets/font/Yrsa-LightItalic.ttf", 300, true);
+@include importFont("Yrsa", "assets/font/Yrsa-Regular.ttf", 400);
+@include importFont("Yrsa", "assets/font/Yrsa-Italic.ttf", 400, true);
+@include importFont("Yrsa", "assets/font/Yrsa-Medium.ttf", 500);
+@include importFont("Yrsa", "assets/font/Yrsa-MediumItalic.ttf", 500, true);
+@include importFont("Yrsa", "assets/font/Yrsa-Bold.ttf", 600);
+@include importFont("Yrsa", "assets/font/Yrsa-BoldItalic.ttf", 600, true);
+
+body {
+    font-family: "Yrsa", sans-serif;
+}
