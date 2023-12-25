@@ -1,6 +1,7 @@
-@import "css-properties";
-@import "media";
-@import "font";
+@import "setup/css-properties";
+@import "setup/media";
+@import "setup/font";
 @import "base";
-@import "header";
-@import "employee";
+@import "blocks/header";
+@import "blocks/employee";
+@import "blocks/footer";
