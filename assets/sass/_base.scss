@@ -19,10 +19,15 @@ body {
 
         .HeaderEmployees {
             position: absolute;
+            display: none;
             top: 0;
             right: 0;
             height: 100%;
             width: 42%;
+
+            @include mediaScreenMin(lg) {
+                display: block;
+            }
         }
     }
 
@@ -47,6 +52,10 @@ body {
             flex-wrap: nowrap;
         }
     }
+}
+
+.MeetOurStuff {
+    margin-bottom: 2rem;
 }
 
 .EmployeesFrame {
@@ -74,6 +83,6 @@ body {
     justify-content: center;
     text-decoration: underline;
     font-style: italic;
-    margin-top: 2rem;
+    margin-top: 6rem;
     margin-bottom: 4.75rem;
 }
