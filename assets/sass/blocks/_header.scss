@@ -1,8 +1,29 @@
 .Header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--colorBrandPrimary);
+    z-index: 10000;
+
+    @include mediaScreenMin('lg') {
+        position: static;
+        z-index: unset;
+    }
+
     &-logo {
         height: 2.25rem;
-        margin-top: 4.75rem;
+        margin-block: 1.75rem;
+        margin-left: 9rem;
         margin-right: auto;
+
+        @include mediaScreenMin('lg') {
+            margin-top: 4.75rem;
+            margin-bottom: 0;
+            margin-left: 0;
+        }
 
         img {
             width: 100%;
@@ -12,9 +33,13 @@
 
     &-navToggle {
         position: fixed;
-        top: 4.75rem;
+        top: 1.75rem;
         left: 3.6rem;
         cursor: pointer;
+
+        @include mediaScreenMin('lg') {
+            top: 4.75rem;
+        }
     }
 }
 
