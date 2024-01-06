@@ -149,10 +149,34 @@ body footer {
   margin-bottom: 4.75rem;
 }
 
+.Header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--colorBrandPrimary);
+  z-index: 10000;
+}
+@media screen and (min-width: 62rem) {
+  .Header {
+    position: static;
+    z-index: unset;
+  }
+}
 .Header-logo {
   height: 2.25rem;
-  margin-top: 4.75rem;
+  margin-block: 1.75rem;
+  margin-left: 9rem;
   margin-right: auto;
+}
+@media screen and (min-width: 62rem) {
+  .Header-logo {
+    margin-top: 4.75rem;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
 }
 .Header-logo img {
   width: 100%;
@@ -160,9 +184,14 @@ body footer {
 }
 .Header-navToggle {
   position: fixed;
-  top: 4.75rem;
+  top: 1.75rem;
   left: 3.6rem;
   cursor: pointer;
+}
+@media screen and (min-width: 62rem) {
+  .Header-navToggle {
+    top: 4.75rem;
+  }
 }
 
 .HeaderContent {
