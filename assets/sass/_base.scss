@@ -1,6 +1,8 @@
 body {
     margin: 0;
     font-size: 16px;
+    font-family: var(--fontPrimary);
+    font-weight: 300;
 
     &.HomePage {
         background-color: var(--colorBrandSecondary);
@@ -96,4 +98,16 @@ body {
     font-style: italic;
     margin-top: 6rem;
     margin-bottom: 4.75rem;
+}
+
+input {
+    &.FormComponent {
+        padding: var(--spacingInputPadding);
+        font-size: 1.2rem;
+        outline: unset;
+        border: unset;
+        background-color: var(--colorInputBg);
+        color: var(--colorInputColor);
+        width: 100%;
+    }
 }

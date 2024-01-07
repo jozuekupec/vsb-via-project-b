@@ -22,19 +22,30 @@
         }
 
         &-moto {
+            display: flex;
+            flex-direction: column;
             margin-bottom: 2rem;
             margin-top: 2.5rem;
 
             span {
-                display: block;
-                text-decoration: underline;
+                display: inline-block;
                 font-style: italic;
                 font-size: 3.375rem;
                 font-weight: 300;
-                transition: all .5s ease-in-out;
+                margin-right: auto;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    border-bottom: 1px solid black;
+                    width: 100%;
+                    transition: var(--animation-base);
+                }
 
                 &:hover {
-                    text-decoration: unset;
+                    &:after {
+                        opacity: 0;
+                    }
                 }
             }
         }
@@ -45,14 +56,9 @@
             align-items: center;
             position: relative;
             margin-right: auto;
+            width: 100%;
 
-            input {
-                padding: var(--spacingInputPadding);
-                font-size: 1.2rem;
-                outline: unset;
-                border: unset;
-                background-color: var(--colorInputBg);
-                color: var(--colorInputColor);
+            @include mediaScreenMin('lg') {
                 width: 25rem;
             }
 

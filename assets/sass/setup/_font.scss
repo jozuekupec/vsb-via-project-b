@@ -1,7 +1,18 @@
-@mixin importFont($family, $url, $weight, $isItalic: false) {
+@mixin importFont($family, $url, $extension, $weight, $isItalic: false) {
+    $format: "";
+    @if($extension == "ttf") {
+        $format: "truetype";
+    } @else if($extension == "otf") {
+        $format: "opentype"
+    } @else if($extension == "woff") {
+        $format: "woff"
+    } @else if($extension == "eot") {
+        $format: "embedded-opentype"
+    }
+
     @font-face {
-        font-family: $family, sans-serif;
-        src: url($url) format("trueType");
+        font-family: $family;
+        src: url($url + "." + $extension) format($format);
         font-weight: $weight;
 
         @if $isItalic {
@@ -10,15 +21,24 @@
     }
 }
 
-@include importFont("Yrsa", "assets/font/Yrsa-Light.ttf", 300);
-@include importFont("Yrsa", "assets/font/Yrsa-LightItalic.ttf", 300, true);
-@include importFont("Yrsa", "assets/font/Yrsa-Regular.ttf", 400);
-@include importFont("Yrsa", "assets/font/Yrsa-Italic.ttf", 400, true);
-@include importFont("Yrsa", "assets/font/Yrsa-Medium.ttf", 500);
-@include importFont("Yrsa", "assets/font/Yrsa-MediumItalic.ttf", 500, true);
-@include importFont("Yrsa", "assets/font/Yrsa-Bold.ttf", 600);
-@include importFont("Yrsa", "assets/font/Yrsa-BoldItalic.ttf", 600, true);
+$mainFontName: "Canela";
+$mainFontType: "otf";
+@include importFont($mainFontName, "/assets/font/canela/Canela-Light-Trial", $mainFontType, 300);
+@include importFont($mainFontName, "/assets/font/canela/Canela-LightItalic-Trial", $mainFontType, 300, true);
+@include importFont($mainFontName, "/assets/font/canela/Canela-Regular-Trial", $mainFontType, 400);
+@include importFont($mainFontName, "/assets/font/canela/Canela-RegularItalic-Trial", $mainFontType, 400, true);
+@include importFont($mainFontName, "/assets/font/canela/Canela-Medium-Trial", $mainFontType, 500);
+@include importFont($mainFontName, "/assets/font/canela/Canela-MediumItalic-Trial", $mainFontType, 500, true);
+@include importFont($mainFontName, "/assets/font/canela/Canela-Bold-Trial", $mainFontType, 600);
+@include importFont($mainFontName, "/assets/font/canela/Canela-BoldItalic-Trial", $mainFontType, 600, true);
 
-body {
-    font-family: "Yrsa", sans-serif;
-}
+$secondaryFontName: "GT America Standard";
+$secondaryFontType: "otf";
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Light-Trial", $secondaryFontType, 300);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Light-Italic-Trial", $secondaryFontType, 300, true);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Regular-Trial", $secondaryFontType, 400);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Regular-Italic-Trial", $secondaryFontType, 400, true);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Medium-Trial", $secondaryFontType, 500);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Medium-Italic-Trial", $secondaryFontType, 500, true);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Bold-Trial", $secondaryFontType, 600);
+@include importFont($secondaryFontName, "/assets/font/gt-america/GT-America-Standard-Bold-Italic-Trial", $secondaryFontType, 600, true);
