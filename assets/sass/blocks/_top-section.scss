@@ -1,0 +1,78 @@
+.TopSection {
+    height: 29rem;
+    width: 100%;
+    background-color: var(--colorBrandPrimary);
+    transition: var(--animation-base);
+    overflow: hidden;
+
+    &Frame {
+        display: flex;
+        flex-direction: column;
+        margin-inline: auto;
+        width: var(--sizeContainerWidthRg);
+    }
+
+    &Content {
+        display: flex;
+        flex-direction: column;
+        margin-top: calc(2.5rem + 5rem);
+
+        @include mediaScreenMin('lg') {
+            margin-top: 2.5rem;
+        }
+
+        &-moto {
+            margin-bottom: 2rem;
+            margin-top: 2.5rem;
+
+            span {
+                display: block;
+                text-decoration: underline;
+                font-style: italic;
+                font-size: 3.375rem;
+                font-weight: 300;
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    text-decoration: unset;
+                }
+            }
+        }
+
+        &-search {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            margin-right: auto;
+
+            input {
+                padding: var(--spacingInputPadding);
+                font-size: 1.2rem;
+                outline: unset;
+                border: unset;
+                background-color: var(--colorInputBg);
+                color: var(--colorInputColor);
+                width: 25rem;
+            }
+
+            svg {
+                position: absolute;
+                right: 1rem;
+            }
+        }
+    }
+
+    .TopSectionEmployees {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        height: calc(29rem + 7rem);
+        width: 42%;
+
+        @include mediaScreenMin(lg) {
+            display: block;
+        }
+    }
+}

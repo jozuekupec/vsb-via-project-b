@@ -1,23 +1,28 @@
 .Header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     background-color: var(--colorBrandPrimary);
     z-index: 10000;
 
     @include mediaScreenMin('lg') {
         position: static;
-        z-index: unset;
+    }
+
+    &-frame {
+        display: flex;
+        flex-direction: row;
+        width: var(--sizeContainerWidthRg);
+        margin-inline: auto;
     }
 
     &-logo {
         height: 2.25rem;
         margin-block: 1.75rem;
-        margin-left: 9rem;
+        margin-left: 7rem;
         margin-right: auto;
+        z-index: 10000;
 
         @include mediaScreenMin('lg') {
             margin-top: 4.75rem;
@@ -36,56 +41,10 @@
         top: 1.75rem;
         left: 3.6rem;
         cursor: pointer;
+        z-index: 10000;
 
         @include mediaScreenMin('lg') {
             top: 4.75rem;
-        }
-    }
-}
-
-.HeaderContent {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2.5rem;
-
-    &-moto {
-        margin-bottom: 2rem;
-        margin-top: 2.5rem;
-
-        span {
-            display: block;
-            text-decoration: underline;
-            font-style: italic;
-            font-size: 3.375rem;
-            font-weight: 300;
-            transition: all .5s ease-in-out;
-
-            &:hover {
-                text-decoration: unset;
-            }
-        }
-    }
-
-    &-search {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-        margin-right: auto;
-
-        input {
-            padding: var(--spacingInputPadding);
-            font-size: 1.2rem;
-            outline: unset;
-            border: unset;
-            background-color: var(--colorInputBg);
-            color: var(--colorInputColor);
-            width: 25rem;
-        }
-
-        svg {
-            position: absolute;
-            right: 1rem;
         }
     }
 }
