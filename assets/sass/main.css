@@ -10,6 +10,8 @@
   --spacingContainerPadding: 3.6rem;
   --spacingFooterColumnTopMargin: .7rem;
   --sizeContainerWidthRg: 83.3%;
+  --sizeNavigationWidthLg: 70%;
+  --animation-base: .25s all ease-in;
 }
 
 @font-face {
@@ -62,8 +64,10 @@ body {
 
 body {
   margin: 0;
-  background-color: var(--colorBrandSecondary);
   font-size: 16px;
+}
+body.HomePage {
+  background-color: var(--colorBrandSecondary);
 }
 body header {
   display: flex;
@@ -71,30 +75,30 @@ body header {
   position: relative;
   background-color: var(--colorBrandPrimary);
 }
-body header .HeaderFrame {
-  display: flex;
-  flex-direction: column;
-  height: 29rem;
-  width: var(--sizeContainerWidthRg);
-  margin-inline: auto;
-}
-body header .HeaderEmployees {
-  position: absolute;
-  display: none;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 42%;
-}
-@media screen and (min-width: 62rem) {
-  body header .HeaderEmployees {
-    display: block;
-  }
-}
 body main {
   width: var(--sizeContainerWidthRg);
   margin-inline: auto;
   padding-block: 2.5rem;
+  transition: var(--animation-base);
+}
+body.Navigation--opened {
+  overflow-x: hidden;
+}
+body.Navigation--opened header .HeaderEmployees {
+  transform: translateX(var(--sizeNavigationWidthLg));
+}
+body.Navigation--opened .Navigation {
+  transform: scaleX(100%);
+}
+body.Navigation--opened .TopSection {
+  transform: translateX(var(--sizeNavigationWidthLg));
+}
+body.Navigation--opened main {
+  transform: translateX(var(--sizeNavigationWidthLg));
+  margin-right: 0;
+}
+body.Navigation--opened footer {
+  transform: translateX(var(--sizeNavigationWidthLg));
 }
 body footer {
   display: flex;
@@ -106,6 +110,7 @@ body footer {
   padding-block: 6rem;
   padding-inline: var(--spacingContainerPadding);
   background-color: #000000;
+  transition: var(--animation-base);
 }
 @media screen and (min-width: 62rem) {
   body footer {
@@ -150,26 +155,30 @@ body footer {
 }
 
 .Header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   background-color: var(--colorBrandPrimary);
   z-index: 10000;
 }
 @media screen and (min-width: 62rem) {
   .Header {
     position: static;
-    z-index: unset;
   }
+}
+.Header-frame {
+  display: flex;
+  flex-direction: row;
+  width: var(--sizeContainerWidthRg);
+  margin-inline: auto;
 }
 .Header-logo {
   height: 2.25rem;
   margin-block: 1.75rem;
-  margin-left: 9rem;
+  margin-left: 7rem;
   margin-right: auto;
+  z-index: 10000;
 }
 @media screen and (min-width: 62rem) {
   .Header-logo {
@@ -187,6 +196,7 @@ body footer {
   top: 1.75rem;
   left: 3.6rem;
   cursor: pointer;
+  z-index: 10000;
 }
 @media screen and (min-width: 62rem) {
   .Header-navToggle {
@@ -194,16 +204,57 @@ body footer {
   }
 }
 
-.HeaderContent {
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--sizeNavigationWidthLg);
+  height: 100vh;
+  background-color: var(--colorBrandPrimary);
+  transform: scaleX(0%);
+  transition: var(--animation-base);
+  transform-origin: left;
+}
+.Navigation-container {
+  width: 60%;
+  margin-top: 15rem;
+  margin-inline: calc((100% - var(--sizeContainerWidthRg)) * 0.7);
+}
+.Navigation-employees {
+  width: 40%;
+  object-fit: cover;
+}
+
+.TopSection {
+  height: 29rem;
+  width: 100%;
+  background-color: var(--colorBrandPrimary);
+  transition: var(--animation-base);
+  overflow: hidden;
+}
+.TopSectionFrame {
   display: flex;
   flex-direction: column;
-  margin-top: 2.5rem;
+  margin-inline: auto;
+  width: var(--sizeContainerWidthRg);
 }
-.HeaderContent-moto {
+.TopSectionContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7.5rem;
+}
+@media screen and (min-width: 62rem) {
+  .TopSectionContent {
+    margin-top: 2.5rem;
+  }
+}
+.TopSectionContent-moto {
   margin-bottom: 2rem;
   margin-top: 2.5rem;
 }
-.HeaderContent-moto span {
+.TopSectionContent-moto span {
   display: block;
   text-decoration: underline;
   font-style: italic;
@@ -211,17 +262,17 @@ body footer {
   font-weight: 300;
   transition: all 0.5s ease-in-out;
 }
-.HeaderContent-moto span:hover {
+.TopSectionContent-moto span:hover {
   text-decoration: unset;
 }
-.HeaderContent-search {
+.TopSectionContent-search {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   margin-right: auto;
 }
-.HeaderContent-search input {
+.TopSectionContent-search input {
   padding: var(--spacingInputPadding);
   font-size: 1.2rem;
   outline: unset;
@@ -230,9 +281,22 @@ body footer {
   color: var(--colorInputColor);
   width: 25rem;
 }
-.HeaderContent-search svg {
+.TopSectionContent-search svg {
   position: absolute;
   right: 1rem;
+}
+.TopSection .TopSectionEmployees {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  height: 36rem;
+  width: 42%;
+}
+@media screen and (min-width: 62rem) {
+  .TopSection .TopSectionEmployees {
+    display: block;
+  }
 }
 
 .Employee {
