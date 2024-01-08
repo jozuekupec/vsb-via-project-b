@@ -8,7 +8,7 @@ body {
         background-color: var(--colorBrandSecondary);
     }
 
-    header {
+    &.HomePage header {
         display: flex;
         flex-direction: row;
         position: relative;

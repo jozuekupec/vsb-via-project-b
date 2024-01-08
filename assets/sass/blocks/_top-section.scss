@@ -76,6 +76,7 @@
         right: 0;
         height: calc(29rem + 7rem);
         width: 42%;
+        z-index: 100000;
 
         @include mediaScreenMin(lg) {
             display: block;

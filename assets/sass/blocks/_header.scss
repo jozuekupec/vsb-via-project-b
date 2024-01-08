@@ -3,7 +3,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--colorBrandPrimary);
     z-index: 10000;
 
     @include mediaScreenMin('lg') {
@@ -15,14 +14,22 @@
         flex-direction: row;
         width: var(--sizeContainerWidthRg);
         margin-inline: auto;
+        align-items: center;
+
+        @include mediaScreenMin('lg') {
+            align-items: end;
+        }
     }
 
     &-logo {
         height: 2.25rem;
         margin-block: 1.75rem;
         margin-left: 7rem;
-        margin-right: auto;
         z-index: 10000;
+
+        &:only-of-type{
+            margin-right: auto;
+        }
 
         @include mediaScreenMin('lg') {
             margin-top: 4.75rem;
@@ -45,6 +52,36 @@
 
         @include mediaScreenMin('lg') {
             top: 4.75rem;
+        }
+    }
+}
+
+.HeaderBreadcrumbs {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.25rem;
+    font-family: "GT America Standard", sans-serif;
+    font-weight: 300;
+    font-size: .925rem;
+    height: 1.5rem;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 2.5rem;
+    z-index: 10000;
+    margin-top: .7rem;
+
+    @include mediaScreenMin('lg') {
+        margin-top: 0;
+    }
+
+    &-item {
+        &:before {
+            content: "\203A";
+            margin-right: 1.25rem;
+        }
+
+        a {
+            color: var(--colorText);
         }
     }
 }

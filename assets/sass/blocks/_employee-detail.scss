@@ -1,0 +1,126 @@
+.EmployeeDetail {
+
+    .EmployeeTwoCols {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-inline: 0;
+        padding-inline: var(--spacingContainerPadding);
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: 5rem;
+        padding-bottom: 5.95rem;
+        margin-top: 3rem;
+
+        @include mediaScreenMin('md') {
+            grid-template-columns: calc(100% / 3) calc(2 * 100% / 3);
+        }
+
+        @include mediaScreenMin('lg') {
+            margin-top: 0;
+        }
+    }
+
+    .EmployeeCol {
+        &Image {
+            display: flex;
+            flex-direction: column;
+
+            &-image {
+                width: 70%;
+                height: auto;
+                margin-inline: auto;
+                margin-bottom: -6rem;
+                z-index: 100;
+
+                @include mediaScreenMin('md') {
+                    width: 100%;
+                    margin-inline: 0;
+                    margin-bottom: 0;
+                    margin-top: 6rem;
+                }
+            }
+
+            &-svg {
+                height: 6rem;
+                margin-bottom: -6rem;
+                z-index: 10;
+
+                @include mediaScreenMin('md') {
+                    height: 11rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &Text {
+            display: flex;
+            flex-direction: column;
+            row-gap: var(--spacingContainerPadding);
+            background-color: var(--colorBlockBackgroundBg);
+            color: var(--colorTextThird);
+            font-family: "GT America Standard", sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-inline: calc(var(--spacingContainerPadding) * (-1));
+            padding-inline: var(--spacingContainerPadding);
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+
+            @include mediaScreenMin('md') {
+                padding-top: 6rem;
+                margin-left: 0;
+                padding-left: 6.87rem;
+            }
+
+            h1 {
+                font-family: "Canela", "Times New Roman", sans-serif;
+                margin: 0;
+                font-size: 2.625rem;
+                font-weight: 300;
+            }
+
+            h3 {
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin-bottom: .6rem;
+            }
+
+            &-workTitle {
+                font-family: "Canela", "Times New Roman", sans-serif;
+                font-size: 2.625rem;
+                font-style: italic;
+            }
+
+            &-contactInfo {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 39rem;
+
+                a {
+                    margin-top: .2rem;
+                    color: var(--colorTextThird);
+                }
+            }
+
+            &-contactItem {
+                div {
+                    margin-bottom: .2rem;
+                }
+            }
+
+            p {
+                max-width: 39rem;
+            }
+
+            &-dateLine {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-block: .35rem;
+                border-bottom: 1px solid #000000;
+                width: 100%;
+            }
+        }
+    }
+}
